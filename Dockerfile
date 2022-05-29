@@ -12,6 +12,10 @@ COPY . /app
 
 EXPOSE 4001
 
+RUN --mount=type=secret,id=DATABASE_HOST \
+  export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST) && \
+  echo $DATABASE_HOST
+
 RUN --mount=type=secret, id=DATABASE_HOST \
   --mount=type=secret, id=DATABASE_ID \
   --mount=type=secret, id=DATABASE_PASSWORD \
