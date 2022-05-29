@@ -8,6 +8,29 @@ COPY package*.json /app/
 
 RUN npm install
 
+RUN --mount=type=secret,id=DATABASE_HOST \
+  --mount=type=secret,id=DATABASE_ID \
+  --mount=type=secret,id=DATABASE_PASSWORD \
+  --mount=type=secret,id=DATABASE_NAME \
+  --mount=type=secret,id=HOSTNAME \
+  --mount=type=secret,id=PORT \
+  --mount=type=secret,id=feeAddress \
+  --mount=type=secret,id=feePrivateKey \
+  --mount=type=secret,id=Oracle_CONTRACT_ADDRESS \
+  --mount=type=secret,id=Factory_CONTRACT_ADDRESS \
+  --mount=type=secret,id=Kameleon_CONTRACT_ADDRESS \
+   export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST) && \
+   export DATABASE_ID=$(cat /run/secrets/DATABASE_ID) && \
+   export DATABASE_PASSWORD=$(cat /run/secrets/DATABASE_PASSWORD) && \
+   export DATABASE_NAME=$(cat /run/secrets/DATABASE_NAME) && \
+   export HOSTNAME=$(cat /run/secrets/HOSTNAME) && \
+   export PORT=$(cat /run/secrets/PORT) && \
+   export feeAddress=$(cat /run/secrets/feeAddress) && \
+   export feePrivateKey=$(cat /run/secrets/feePrivateKey) && \
+   export Oracle_CONTRACT_ADDRESS=$(cat /run/secrets/Oracle_CONTRACT_ADDRESS) && \
+   export Factory_CONTRACT_ADDRESS=$(cat /run/secrets/Factory_CONTRACT_ADDRESS) && \
+   export Kameleon_CONTRACT_ADDRESS=$(cat /run/secrets/Kameleon_CONTRACT_ADDRESS) && 
+
 COPY . /app
 
 EXPOSE 4001

@@ -15,7 +15,7 @@
     "pro": "cross-env NODE_ENV=production tsc --project tsconfig.json && cross-env NODE_ENV=production node ./dist/index.js",
     "typeorm": "ts-node ./node_modules/typeorm/cli.js",
     "dockerBuild": "docker build . -t omega",
-    "dockerRun": "docker run -p 7777:7777 -t omega",
+    "dockerRun": "docker run -p 7777:4001 -t omega",
     "test": "jest --setupFiles dotenv/config --forceExit --detectOpenHandles",
     "migration": "yarn typeorm migration:run"
   },
