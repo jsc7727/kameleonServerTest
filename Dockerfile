@@ -16,17 +16,17 @@ RUN --mount=type=secret,id=DATABASE_HOST \
   export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST) && \
   echo $DATABASE_HOST
 
-RUN --mount=type=secret, id=DATABASE_HOST \
-  --mount=type=secret, id=DATABASE_ID \
-  --mount=type=secret, id=DATABASE_PASSWORD \
-  --mount=type=secret, id=DATABASE_NAME \
-  --mount=type=secret, id=HOSTNAME \
-  --mount=type=secret, id=PORT \
-  --mount=type=secret, id=feeAddress \
-  --mount=type=secret, id=feePrivateKey \
-  --mount=type=secret, id=Oracle_CONTRACT_ADDRESS \
-  --mount=type=secret, id=Factory_CONTRACT_ADDRESS \
-  --mount=type=secret, id=Kameleon_CONTRACT_ADDRESS \
+RUN --mount=type=secret,id=DATABASE_HOST \
+  --mount=type=secret,id=DATABASE_ID \
+  --mount=type=secret,id=DATABASE_PASSWORD \
+  --mount=type=secret,id=DATABASE_NAME \
+  --mount=type=secret,id=HOSTNAME \
+  --mount=type=secret,id=PORT \
+  --mount=type=secret,id=feeAddress \
+  --mount=type=secret,id=feePrivateKey \
+  --mount=type=secret,id=Oracle_CONTRACT_ADDRESS \
+  --mount=type=secret,id=Factory_CONTRACT_ADDRESS \
+  --mount=type=secret,id=Kameleon_CONTRACT_ADDRESS \
    export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST) && \
    export DATABASE_ID=$(cat /run/secrets/DATABASE_ID) && \
    export DATABASE_PASSWORD=$(cat /run/secrets/DATABASE_PASSWORD) && \

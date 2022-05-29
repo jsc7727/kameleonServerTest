@@ -46,11 +46,11 @@ jobs:
             "DATABASE_NAME=${{ secrets.DATABASE_NAME }}"
             "HOSTNAME=${{ secrets.HOSTNAME }}"
             "PORT=${{ secrets.PORT }}"
-            "feeAddress=${{ secrets.feeAddress }}"
-            "feePrivateKey=${{ secrets.feePrivateKey }}"
-            "Oracle_CONTRACT_ADDRESS=${{ secrets.Oracle_CONTRACT_ADDRESS }}"
-            "Factory_CONTRACT_ADDRESS=${{ secrets.Factory_CONTRACT_ADDRESS }}"
-            "Kameleon_CONTRACT_ADDRESS=${{ secrets.Kameleon_CONTRACT_ADDRESS }}"
+            "feeAddress=${{ secrets.FEEADDRESS }}"
+            "feePrivateKey=${{ secrets.FEEPRIVATEKEY }}"
+            "Oracle_CONTRACT_ADDRESS=${{ secrets.ORACLE_CONTRACT_ADDRESS }}"
+            "Factory_CONTRACT_ADDRESS=${{ secrets.FACTORY_CONTRACT_ADDRESS }}"
+            "Kameleon_CONTRACT_ADDRESS=${{ secrets.KAMELEON_CONTRACT_ADDRESS }}"
 
   deploy:
     needs: build
