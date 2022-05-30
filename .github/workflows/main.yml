@@ -39,8 +39,8 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ env.DOCKER_IMAGE }}:latest
-          # secrets: |
-          #   "DATABASE_HOST=${{ secrets.DATABASE_HOST }}"
+          secrets: |
+            "DATABASE_HOST=${{ secrets.DATABASE_HOST }}"
           #   "DATABASE_ID=${{ secrets.DATABASE_ID }}"
           #   "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}"
           #   "DATABASE_NAME=${{ secrets.DATABASE_NAME }}"
