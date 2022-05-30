@@ -11,8 +11,6 @@ FROM node:16
 # RUN --mount=type=secret,id=DATABASE_HOST \
 #   export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST)
 
-RUN env
-
 WORKDIR /app
 
 #npm install 을 위해, package.json과 package-lock.json을 먼저 copy해둠
