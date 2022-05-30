@@ -40,7 +40,6 @@ exports.updateStockPrice = void 0;
 var bithumbSocket_1 = require("./bithumbSocket");
 var naverApi_1 = require("./naverApi");
 var KAS_1 = require("./KAS");
-var contractAddress_1 = require("../constants/contractAddress");
 require("dotenv").config();
 var updateStockPrice = function () { return __awaiter(void 0, void 0, void 0, function () {
     var result, price_1;
@@ -54,7 +53,7 @@ var updateStockPrice = function () { return __awaiter(void 0, void 0, void 0, fu
                 price_1 = +bithumbSocket_1.klaytnPrice;
                 return [4 /*yield*/, (0, KAS_1.sendContract)({
                         contractName: "Oracle",
-                        contractAddress: contractAddress_1.OracleAddress,
+                        contractAddress: process.env.ORACLE_CONTRACT_ADDRESS,
                         methodName: "setOraclePrice",
                         parameters: [
                             result.map(function (_a) {

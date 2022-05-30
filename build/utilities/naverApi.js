@@ -44,7 +44,6 @@ exports.stockPrice = void 0;
 var axios_1 = __importDefault(require("axios"));
 var KAS_1 = require("./KAS");
 var iconv_lite_1 = __importDefault(require("iconv-lite"));
-var contractAddress_1 = require("../constants/contractAddress");
 var stockPrice = function () { return __awaiter(void 0, void 0, void 0, function () {
     var stocklist, uri, html, result, datas, result_1, error_1;
     return __generator(this, function (_a) {
@@ -53,7 +52,7 @@ var stockPrice = function () { return __awaiter(void 0, void 0, void 0, function
                 _a.trys.push([0, 3, , 4]);
                 return [4 /*yield*/, (0, KAS_1.callContract)({
                         contractName: "Oracle",
-                        contractAddress: contractAddress_1.OracleAddress,
+                        contractAddress: process.env.ORACLE_CONTRACT_ADDRESS,
                         methodName: "getStockCodeList",
                     })];
             case 1:

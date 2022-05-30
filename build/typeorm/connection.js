@@ -84,6 +84,9 @@ var connection = {
                     case 1:
                         // typerom 연결 삭제
                         _a.sent();
+                        return [4 /*yield*/, (0, typeorm_1.getConnection)(process.env.DATABASE_DEMON_NAME).close()];
+                    case 2:
+                        _a.sent();
                         return [2 /*return*/];
                 }
             });

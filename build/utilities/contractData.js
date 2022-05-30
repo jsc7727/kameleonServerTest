@@ -6,14 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.byteCodeList = exports.abiList = void 0;
 var fs_1 = __importDefault(require("fs"));
 var path_1 = __importDefault(require("path"));
-// const contractPath = "./../contracts/artifacts";
 // const contractPath =
 //   process.env.NODE_ENV === "production"
 //     ? "./../../../contract/contracts/artifacts"
 //     : "./../../contract/contracts/artifacts";
 var contractPath = process.env.NODE_ENV === "production"
     ? "./../../contracts/artifacts"
-    : "./../contract/contracts/artifacts";
+    : "./../contracts/artifacts";
+// const contractPath = "./../contracts/artifacts";
 var abiList = {};
 exports.abiList = abiList;
 var byteCodeList = {};
