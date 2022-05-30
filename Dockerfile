@@ -1,6 +1,9 @@
 # Install dependencies only when needed
 FROM node:16-alpine AS deps
 
+RUN --mount=type=secret,id=DATABASE_HOST \
+  cat /run/secrets/DATABASE_HOST
+
 WORKDIR /app
 
 #npm install 을 위해, package.json과 package-lock.json을 먼저 copy해둠
