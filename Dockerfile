@@ -4,7 +4,10 @@ FROM node:16-alpine AS deps
 RUN --mount=type=secret,id=DATABASE_HOST \
   cat /run/secrets/DATABASE_HOST
 
-RUN cat /run/secrets/DATABASE_HOST
+RUN --mount=type=secret,id=DATABASE_HOST \
+  export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST)
+
+RUN env
 
 WORKDIR /app
 
