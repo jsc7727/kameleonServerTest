@@ -10,7 +10,7 @@ const updateStockPrice = async () => {
     const price = +klaytnPrice;
     await sendContract({
       contractName: "Oracle",
-      contractAddress: process.env.Oracle_CONTRACT_ADDRESS,
+      contractAddress: process.env.ORACLE_CONTRACT_ADDRESS,
       methodName: "setOraclePrice",
       parameters: [
         result.map(({ nowValue }) => {

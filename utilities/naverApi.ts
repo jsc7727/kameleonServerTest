@@ -8,7 +8,7 @@ const stockPrice = async () => {
   try {
     const stocklist: Array<string> = await callContract({
       contractName: "Oracle",
-      contractAddress: process.env.Oracle_CONTRACT_ADDRESS,
+      contractAddress: process.env.ORACLE_CONTRACT_ADDRESS,
       methodName: "getStockCodeList",
     });
     console.log(stocklist);

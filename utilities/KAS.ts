@@ -5,8 +5,8 @@ export const caver = new Caver(process.env.BAOBAB_NETWORK);
 import { abiList, byteCodeList } from "./contractData";
 
 const deployerKeyring = caver.wallet.keyring.create(
-  process.env.feeAddress,
-  process.env.feePrivateKey
+  process.env.FEEADDRESS,
+  process.env.FEEPRIVATEKEY
 );
 caver.wallet.add(deployerKeyring);
 
@@ -148,7 +148,7 @@ const getBalance = async ({ address }: { address: string }) => {
 //   contractName: "MyKIP7",
 //   contractAddress,
 //   methodName: "approve",
-//   parameters: [process.env.feeAddress, "1000000"],
+//   parameters: [process.env.FEEADDRESS, "1000000"],
 // });
 
 // multiMint();
