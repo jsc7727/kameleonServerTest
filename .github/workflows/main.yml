@@ -34,7 +34,7 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
       - name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v2
         with:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
@@ -66,4 +66,15 @@ jobs:
       - name: Docker run
         run: |
           docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
-          docker run -d -p 4001:4001 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
+          docker run -d -p 4001:4001 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest \
+          -e DATABASE_HOST=${{ secrets.DATABASE_HOST }} \
+          -e DATABASE_ID=${{ secrets.DATABASE_ID }} \
+          -e DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }} \
+          -e DATABASE_NAME=${{ secrets.DATABASE_NAME }} \
+          -e HOSTNAME=${{ secrets.HOSTNAME }} \
+          -e PORT=${{ secrets.PORT }} \
+          -e FEEADDRESS=${{ secrets.FEEADDRESS }} \
+          -e FEEPRIVATEKEY=${{ secrets.FEEPRIVATEKEY }} \
+          -e ORACLE_CONTRACT_ADDRESS=${{ secrets.ORACLE_CONTRACT_ADDRESS }} \
+          -e FACTORY_CONTRACT_ADDRESS=${{ secrets.FACTORY_CONTRACT_ADDRESS }} \
+          -e KAMELEON_CONTRACT_ADDRESS=${{ secrets.KAMELEON_CONTRACT_ADDRESS }}
