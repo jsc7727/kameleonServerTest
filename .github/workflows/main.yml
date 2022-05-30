@@ -80,7 +80,6 @@ jobs:
           docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
           docker run -d -p 4001:4001 \
           -e DATABASE_HOST=${{ env.DATABASE_HOST }} \
-          -e DATABASE_HOST2=${{ secrets.DATABASE_HOST }} \
           -e DATABASE_ID=${{ env.DATABASE_ID }} \
           -e DATABASE_PASSWORD=${{ env.DATABASE_PASSWORD }} \
           -e DATABASE_NAME=${{ env.DATABASE_NAME }} \

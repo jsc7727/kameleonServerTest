@@ -4,10 +4,13 @@ import path from "path";
 //   process.env.NODE_ENV === "production"
 //     ? "./../../../contract/contracts/artifacts"
 //     : "./../../contract/contracts/artifacts";
-const contractPath =
-  process.env.NODE_ENV === "production"
-    ? "./../../contracts/artifacts"
-    : "./../contract/contracts/artifacts";
+
+// const contractPath =
+//   process.env.NODE_ENV === "production"
+//     ? "./../../contracts/artifacts"
+//     : "./../contracts/artifacts";
+
+const contractPath = "./../contracts/artifacts";
 
 const abiList = {};
 const byteCodeList = {};
