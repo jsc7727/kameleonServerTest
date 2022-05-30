@@ -39,8 +39,8 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ env.DOCKER_IMAGE }}:latest
-          secrets: |
-            "DATABASE_HOST=${{ secrets.DATABASE_HOST }}"
+          # secrets: |
+          #   "DATABASE_HOST=${{ secrets.DATABASE_HOST }}"
           #   "DATABASE_ID=${{ secrets.DATABASE_ID }}"
           #   "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}"
           #   "DATABASE_NAME=${{ secrets.DATABASE_NAME }}"
@@ -63,6 +63,10 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
+
+      - name: test1234
+        run: echo "${{ secrets.DATABASE_HOST }} //////"
+
       - name: Docker run
         run: |
           docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest

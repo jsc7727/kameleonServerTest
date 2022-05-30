@@ -1,11 +1,14 @@
 # Install dependencies only when needed
 FROM node:16-alpine AS deps
 
-RUN --mount=type=secret,id=DATABASE_HOST \
-  cat /run/secrets/DATABASE_HOST
+# RUN --mount=type=secret,id=DATABASE_HOST \
+#   cat /run/secrets/DATABASE_HOST
 
-RUN --mount=type=secret,id=DATABASE_HOST \
-  export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST)
+# RUN --mount=type=secret,id=DATABASE_ID \
+#   cat /run/secrets/DATABASE_ID
+
+# RUN --mount=type=secret,id=DATABASE_HOST \
+#   export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST)
 
 RUN env
 
