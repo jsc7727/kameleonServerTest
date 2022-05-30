@@ -65,7 +65,7 @@ jobs:
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: test1234
-        run: echo "${{ secrets.DATABASE_HOST }} //////"
+        run: echo "${{ secrets.DATABASE_HOST123 }} //////"
 
       - name: Docker run
         run: |
