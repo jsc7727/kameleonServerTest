@@ -20,42 +20,42 @@ RUN yarn install
 
 COPY . /app
 
-ENV PORT 4002
+ENV PORT 4001
 
 EXPOSE $PORT
 
-# RUN --mount=type=secret,id=DATABASE_HOST \
-#   export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST)
+RUN --mount=type=secret,id=DATABASE_HOST \
+  export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST)
 
-# RUN --mount=type=secret,id=DATABASE_ID \
-#   export DATABASE_ID=$(cat /run/secrets/DATABASE_ID)
+RUN --mount=type=secret,id=DATABASE_ID \
+  export DATABASE_ID=$(cat /run/secrets/DATABASE_ID)
 
-# RUN --mount=type=secret,id=DATABASE_PASSWORD \
-#   export DATABASE_PASSWORD=$(cat /run/secrets/DATABASE_PASSWORD)
+RUN --mount=type=secret,id=DATABASE_PASSWORD \
+  export DATABASE_PASSWORD=$(cat /run/secrets/DATABASE_PASSWORD)
 
-# RUN --mount=type=secret,id=DATABASE_NAME \
-#   export DATABASE_NAME=$(cat /run/secrets/DATABASE_NAME)
+RUN --mount=type=secret,id=DATABASE_NAME \
+  export DATABASE_NAME=$(cat /run/secrets/DATABASE_NAME)
 
-# RUN --mount=type=secret,id=HOSTNAME \
-#   export HOSTNAME=$(cat /run/secrets/HOSTNAME)
+RUN --mount=type=secret,id=HOSTNAME \
+  export HOSTNAME=$(cat /run/secrets/HOSTNAME)
 
-# RUN --mount=type=secret,id=PORT \
-#   export PORT=$(cat /run/secrets/PORT)
+RUN --mount=type=secret,id=PORT \
+  export PORT=$(cat /run/secrets/PORT)
 
-# RUN --mount=type=secret,id=FEEADDRESS \
-#   export FEEADDRESS=$(cat /run/secrets/FEEADDRESS)
+RUN --mount=type=secret,id=FEEADDRESS \
+  export FEEADDRESS=$(cat /run/secrets/FEEADDRESS)
 
-# RUN --mount=type=secret,id=FEEPRIVATEKEY \
-#   export FEEPRIVATEKEY=$(cat /run/secrets/FEEPRIVATEKEY)
+RUN --mount=type=secret,id=FEEPRIVATEKEY \
+  export FEEPRIVATEKEY=$(cat /run/secrets/FEEPRIVATEKEY)
 
-# RUN --mount=type=secret,id=ORACLE_CONTRACT_ADDRESS \
-#   export ORACLE_CONTRACT_ADDRESS=$(cat /run/secrets/ORACLE_CONTRACT_ADDRESS)
+RUN --mount=type=secret,id=ORACLE_CONTRACT_ADDRESS \
+  export ORACLE_CONTRACT_ADDRESS=$(cat /run/secrets/ORACLE_CONTRACT_ADDRESS)
 
-# RUN --mount=type=secret,id=FACTORY_CONTRACT_ADDRESS \
-#   export FACTORY_CONTRACT_ADDRESS=$(cat /run/secrets/FACTORY_CONTRACT_ADDRESS)
+RUN --mount=type=secret,id=FACTORY_CONTRACT_ADDRESS \
+  export FACTORY_CONTRACT_ADDRESS=$(cat /run/secrets/FACTORY_CONTRACT_ADDRESS)
 
-# RUN --mount=type=secret,id=KAMELEON_CONTRACT_ADDRESS \
-#   export KAMELEON_CONTRACT_ADDRESS=$(cat /run/secrets/KAMELEON_CONTRACT_ADDRESS)
+RUN --mount=type=secret,id=KAMELEON_CONTRACT_ADDRESS \
+  export KAMELEON_CONTRACT_ADDRESS=$(cat /run/secrets/KAMELEON_CONTRACT_ADDRESS)
 
 
 # RUN --mount=type=secret,id=DATABASE_HOST \
