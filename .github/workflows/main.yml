@@ -78,8 +78,9 @@ jobs:
       - name: Docker run
         run: |
           docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
-          docker run -d -p 4002:4002 \
+          docker run -d -p 4001:4001 \
           -e DATABASE_HOST=${{ env.DATABASE_HOST }} \
+          -e DATABASE_HOST2=${{ secrets.DATABASE_HOST }} \
           -e DATABASE_ID=${{ env.DATABASE_ID }} \
           -e DATABASE_PASSWORD=${{ env.DATABASE_PASSWORD }} \
           -e DATABASE_NAME=${{ env.DATABASE_NAME }} \
@@ -90,7 +91,7 @@ jobs:
           -e ORACLE_CONTRACT_ADDRESS=${{ env.ORACLE_CONTRACT_ADDRESS }} \
           -e FACTORY_CONTRACT_ADDRESS=${{ env.FACTORY_CONTRACT_ADDRESS }} \
           -e KAMELEON_CONTRACT_ADDRESS=${{ env.KAMELEON_CONTRACT_ADDRESS }} \
-          --name go_cicd -restart always ${{ env.DOCKER_IMAGE }}:latest
+          --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
 
 # --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
 
