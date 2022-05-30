@@ -21,7 +21,9 @@ RUN npm install
 
 COPY . /app
 
-EXPOSE 4001
+ENV PORT 4002
+
+EXPOSE $PORT
 
 # RUN --mount=type=secret,id=DATABASE_HOST \
 #   export DATABASE_HOST=$(cat /run/secrets/DATABASE_HOST)
