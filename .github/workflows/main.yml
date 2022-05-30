@@ -50,18 +50,18 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ env.DOCKER_IMAGE }}:latest
-          # secrets: |
-          #   "DATABASE_HOST=${{ secrets.DATABASE_HOST }}"
-          #   "DATABASE_ID=${{ secrets.DATABASE_ID }}"
-          #   "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}"
-          #   "DATABASE_NAME=${{ secrets.DATABASE_NAME }}"
-          #   "HOSTNAME=${{ secrets.HOSTNAME }}"
-          #   "PORT=${{ secrets.PORT }}"
-          #   "FEEADDRESS=${{ secrets.FEEADDRESS }}"
-          #   "FEEPRIVATEKEY=${{ secrets.FEEPRIVATEKEY }}"
-          #   "ORACLE_CONTRACT_ADDRESS=${{ secrets.ORACLE_CONTRACT_ADDRESS }}"
-          #   "FACTORY_CONTRACT_ADDRESS=${{ secrets.FACTORY_CONTRACT_ADDRESS }}"
-          #   "KAMELEON_CONTRACT_ADDRESS=${{ secrets.KAMELEON_CONTRACT_ADDRESS }}"
+          secrets: |
+            "DATABASE_HOST=${{ secrets.DATABASE_HOST }}"
+            "DATABASE_ID=${{ secrets.DATABASE_ID }}"
+            "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}"
+            "DATABASE_NAME=${{ secrets.DATABASE_NAME }}"
+            "HOSTNAME=${{ secrets.HOSTNAME }}"
+            "PORT=${{ secrets.PORT }}"
+            "FEEADDRESS=${{ secrets.FEEADDRESS }}"
+            "FEEPRIVATEKEY=${{ secrets.FEEPRIVATEKEY }}"
+            "ORACLE_CONTRACT_ADDRESS=${{ secrets.ORACLE_CONTRACT_ADDRESS }}"
+            "FACTORY_CONTRACT_ADDRESS=${{ secrets.FACTORY_CONTRACT_ADDRESS }}"
+            "KAMELEON_CONTRACT_ADDRESS=${{ secrets.KAMELEON_CONTRACT_ADDRESS }}"
 
   deploy:
     needs: build
@@ -93,7 +93,7 @@ jobs:
           -e ORACLE_CONTRACT_ADDRESS=${{ env.ORACLE_CONTRACT_ADDRESS }} \
           -e FACTORY_CONTRACT_ADDRESS=${{ env.FACTORY_CONTRACT_ADDRESS }} \
           -e KAMELEON_CONTRACT_ADDRESS=${{ env.KAMELEON_CONTRACT_ADDRESS }} \
-          --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
+          --name go_cicd ${{ env.DOCKER_IMAGE }}:latest
 
 # docker run -d -p 4001:4001 \
 # -e DATABASE_HOST="${{ env.DATABASE_HOST }}" \
